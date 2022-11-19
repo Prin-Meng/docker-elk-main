@@ -1,0 +1,31 @@
+---
+## Default Elasticsearch configuration from Elasticsearch base image.
+## https://github.com/elastic/elasticsearch/blob/master/distribution/docker/src/docker/config/elasticsearch.yml
+#
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+
+## X-Pack settings
+## see https://www.elastic.co/guide/en/elasticsearch/reference/current/security-settings.html
+#
+xpack.license.self_generated.type: trial
+xpack.security.enabled: true
+
+xpack:
+  security:
+    authc:
+      realms:
+        active_directory:
+          my_ad:
+            order: 1
+            domain_name: project.com
+            url: ldap://project.com:389
+#            bind_dn: ELKAdmin@project.com
+            user_search:
+              base_dn: "DC=project,DC=com"
+#            group_search:
+#              base_dn: "dc=project,dc=com"
+            files:
+              role_mapping: "/usr/share/elasticsearch/config/role-mapping.yml"
+
+

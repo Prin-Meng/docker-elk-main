@@ -1,0 +1,5 @@
+superuser:
+  - "CN=ELKAdmin,OU=Headquarter,DC=project,DC=com"
+#user:
+#  - "cn=users,dc=example,dc=com"
+#  - "cn=admins,dc=example,dc=com"
